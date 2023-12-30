@@ -7,9 +7,8 @@ import backspace from '../assets/backspace.png';
 export default function Keyboard1() {
     const [inputText, setInputText] = useState('')
     const [Capslock, setCapslock] = useState(false)
-    const handleClick = (manya) => {
-      setInputText(inputText + manya)
-        console.log(inputText)
+    const handleClick = (e) => {
+         setInputText(inputText + (Capslock ? e.toUpperCase() : e.toLowerCase()));
     }
 
     const handleDEL=()=>{
@@ -22,16 +21,8 @@ export default function Keyboard1() {
         }
     }
 
-    const handleUpperCase=(e)=>{
-        if (key === "CapsLock") {
-            setCapslock(!Capslock)
-            if (Capslock == true){
-                inputText.toUpperCase()
-            }else{
-                inputText.toLocaleLowerCase()
-            }
-        }
-        console.log(e)
+    const handleUpperCase=()=>{
+       setCapslock(!Capslock);
     }
 
 
